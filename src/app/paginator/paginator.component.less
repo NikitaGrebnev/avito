@@ -1,0 +1,71 @@
+@import '../../assets/variables.less';
+
+.paginator {
+    display: flex;
+
+    &__tobegin, &__page {
+        height: 40px;
+        font-family: @headers;
+        font-size: 14px;
+        color: @titles;
+        background: @basic;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+    }
+
+    &__page {
+        width: 40px;
+        margin-left: 8px;
+        border-radius: 50% 50%;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-top: 2px solid @titles;
+            border-bottom: 2px solid @titles;
+            border-radius: 50% 50%;
+            transition: .4s;
+            transform: scaleX(0);
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-left: 2px solid @titles;
+            border-right: 2px solid @titles;
+            border-radius: 50% 50%;
+            transition: .4s;
+            transform: scaleY(0);
+        }
+
+        &:hover::before, &:hover::after {
+            content: '';
+            pointer-events: none;
+            transform: scale(1);
+        }
+
+        &._current {
+            border: 2px solid @titles;
+            background: linear-gradient(to right, @basic, @additional);
+        }
+    }
+    &__tobegin {
+        width: 78px;
+        border-radius: 3rem;
+        transition: .2s;
+
+        &:hover {
+            border: 2px solid @titles;
+        }
+    }
+}

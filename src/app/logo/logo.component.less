@@ -1,0 +1,33 @@
+@import '../../assets/variables.less';
+
+.logo {
+    width: 100px;
+    cursor: pointer; 
+
+    &-svg {
+
+        &__path {
+            fill:transparent; 
+            stroke-width: 4; 
+            stroke-linecap: butt;
+            stroke-linejoin: round;
+            stroke: @titles;
+            stroke-opacity:1;
+            stroke-miterlimit:10;
+            stroke-dasharray: 550px;
+            stroke-dashoffset: 550px;
+            animation: line-animation 4s ease forwards;
+            transition: .2s;   
+        }
+    }
+
+    &:hover .logo-svg__path{
+        stroke: @basic;
+    }
+}
+
+@keyframes line-animation {
+    to {
+      stroke-dashoffset: 0;
+    }
+}

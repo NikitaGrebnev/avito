@@ -1,0 +1,35 @@
+<div class="cards">
+     <div   class="wrapper" 
+            *ngFor="let user of users; let i=index">
+          <div class="wrapper-card">
+               <div class="wrapper-card-content"  
+                    routerLink='repo-info' 
+                    [queryParams]="{name: user.name, starsAmount: user.stargazers_count, lastCommit: user.updated_at, 
+                                   picture: user.owner.avatar_url, login: user.owner.login, loginUrl: user.owner.html_url, progLang: user.language,
+                                   description: user.description, contributorsUrl: user.contributors_url}">
+                    <div class="wrapper-card-content__icon">
+                         <img class="wrapper-card-content__icon-img" src="{{user.owner.avatar_url}}" alt="">
+                    </div>
+                    <div class="wrapper-card-content__info">
+                         <h3 class="wrapper-card-content__info-param">Название</h3>
+                         <p class="wrapper-card-content__info-value">{{user.name}}</p>
+                    </div>
+                    <div class="wrapper-card-content__info">
+                         <h3 class="wrapper-card-content__info-param">Количество звезд</h3>
+                         <p class="wrapper-card-content__info-value">{{user.stargazers_count}}</p>
+                    </div>
+                    <div class="wrapper-card-content__info">
+                         <h3 class="wrapper-card-content__info-param">Последний коммит</h3>
+                         <p class="wrapper-card-content__info-value">{{date[i]}}</p>
+                    </div>
+                    
+               </div>
+               
+               <div class="wrapper-card-github">
+                    <a class="wrapper-card-github__link"
+                            href="{{user?.owner.html_url}}">Ссылка на github</a>
+               </div> 
+          </div>
+     </div>     
+</div>
+

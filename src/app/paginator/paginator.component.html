@@ -1,0 +1,9 @@
+<div class="paginator">
+        <button class = "paginator__tobegin"
+                *ngIf = "toBegin"
+                (click) = "goToBegin()">Начало</button>
+        <button class="paginator__page"
+                *ngFor = "let page of pages; let i = index"
+                [ngClass]="{'_current': pages[i]['isActive']}"
+                (click) = "changePaginator(page.number, i)">{{page.number}}</button>
+</div>

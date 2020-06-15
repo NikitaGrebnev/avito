@@ -1,0 +1,13 @@
+<div class="search">
+    <form class="search-form"
+          action="" 
+          (ngSubmit)='onSubmit(request)'>
+        <input class="search-form__input" 
+               type="text" 
+               placeholder="Название репозитория"
+               #request>
+        <input class="search-form__button" 
+               type="submit" 
+               value="Найти">
+    </form>
+</div>

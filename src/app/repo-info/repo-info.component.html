@@ -1,0 +1,53 @@
+<div class="repo-info__wrapper">
+    <div class="repo-info">
+        <h3 class="repo-info-header">Информация о репозитории</h3>
+    
+        <div class="repo-info-data _main">
+            <div class="repo-info-data-section">
+                <p class="repo-info-data-section__prop">Название</p>
+                <p class="repo-info-data-section__value">{{repoData.name}}</p>
+            </div>
+            <div class="repo-info-data-section">
+                <p class="repo-info-data-section__prop">Количество звезд</p>
+                <p class="repo-info-data-section__value">{{repoData.starsAmount}}</p>
+            </div>
+            <div class="repo-info-data-section">
+                <p class="repo-info-data-section__prop">Время последнего коммита</p>
+                <p class="repo-info-data-section__value">{{date}}</p>
+            </div>    
+        </div>
+        
+        <div class="repo-info-data _owner">
+            <img class="repo-info-data__picture"
+                 src="{{repoData.picture}}"  
+                 alt="">  
+            <p class="repo-info-data__login">Имя владельца: 
+                <a class="repo-info-data__login-link" href="{{repoData.loginUrl}}">{{repoData.login}}</a>
+            </p>
+        </div>
+        
+        <div class="repo-info-data _additional">
+            <p class="repo-info-data__languages">Языки программирования: {{repoData.progLang || 'нет данных'}}</p>
+            <p class="repo-info-data__description">Описание: {{repoData.description}}</p>
+        </div>
+        <div class="repo-info-contributers">
+            <h4 class="repo-info-contributers-header">Активные контрибьюторы</h4>
+            <table class="repo-info-contributers-table">
+                <tr class="repo-info-contributers-table__tr">
+                    <th class="repo-info-contributers-table__tr-th" colspan="2">Имя пользователя</th>
+                    <th class="repo-info-contributers-table__tr-th">Вклад</th>
+                </tr>
+                <tr class="repo-info-contributers-table__tr"
+                    *ngFor="let user of users">
+                    <td class="repo-info-contributers-table__tr-td">
+                        <img src="{{user.avatar_url}}" width="14px" alt="">
+                    </td>
+                    <td class="repo-info-contributers-table__tr-td">
+                        <a class="repo-info-contributers-table__tr-td-link" href="{{user.html_url}}">{{user.login}}</a>
+                    </td>
+                    <td class="repo-info-contributers-table__tr-td">{{user.contributions}}</td>
+                </tr>
+            </table>
+       </div>    
+    </div>    
+</div>
